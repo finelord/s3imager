@@ -91,7 +91,8 @@ const mutations = {
     const itemsById = {};
     const invalidItems = [];
     payload.items.forEach(item => {
-      const parsedImageId = parseImageId(item.name);
+      const imageId = item.name.split('.')[0];
+      const parsedImageId = parseImageId(imageId);
       if (parsedImageId) {
         const { groupId, configId, width, height } = parsedImageId;
         const enrichedItem = { ...item, configId, width, height };

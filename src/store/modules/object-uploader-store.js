@@ -53,7 +53,8 @@ const actions = {
 
         if (!blob) break;
 
-        const objectName = generateImageId(groupId, config.id, meta.width, meta.height);
+        const objectId = generateImageId(groupId, config.id, meta.width, meta.height);
+        const objectName = `${objectId}.jpg`;
         const object = await convertImageToArrayBuffer(blob).catch(err => {
           // TODO: handle err
           console.error(err);
