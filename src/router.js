@@ -32,8 +32,8 @@ export default new Router({
         const isValid = await isCredentialsValid(credentials);
         if (!isValid) return next({ name: 'login' });
 
-        const { endpoint, useSSL, bucket } = credentials;
-        store.dispatch('context/initContext', { endpoint, useSSL, bucket });
+        const { endpoint, useSSL, bucket, cloudFrontUrl } = credentials;
+        store.dispatch('context/initContext', { endpoint, useSSL, bucket, cloudFrontUrl });
         next({ name: 'groupList' });
       },
       children: [

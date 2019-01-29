@@ -7,7 +7,7 @@ export function getCredentials() {
   } catch (err) {
     console.log('Error getting credentials:', err);
   }
-  return credentials;
+  return credentials || {};
 }
 
 export function setCredentials(credentials) {

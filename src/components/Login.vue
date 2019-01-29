@@ -17,6 +17,10 @@
         <span>Bucket</span>
         <input type="text" v-model="bucket">
       </label>
+      <label>
+        <span>CloudFront Url</span>
+        <input type="text" v-model="cloudFrontUrl">
+      </label>
       <button class="primary" :disabled="!isValid" @click="login">Login</button>
     </styled-form>
   </div>
@@ -35,7 +39,8 @@ export default {
       endpoint: '',
       accessKey: '',
       secretKey: '',
-      bucket: ''
+      bucket: '',
+      cloudFrontUrl: ''
     };
   },
   computed: {
@@ -56,25 +61,27 @@ export default {
           useSSL: this.useSSL, // add to form
           accessKey: this.accessKey,
           secretKey: this.secretKey,
-          bucket: this.bucket
+          bucket: this.bucket,
+          cloudFrontUrl: this.cloudFrontUrl
         };
         const isValid = await isCredentialsValid(credentials);
         if (isValid) {
           setCredentials(credentials);
-          const { endpoint, useSSL, bucket } = credentials;
-          this.$store.dispatch('context/initContext', { endpoint, useSSL, bucket });
+          const { endpoint, useSSL, bucket, cloudFrontUrl } = credentials;
+          this.$store.dispatch('context/initContext', { endpoint, useSSL, bucket, cloudFrontUrl });
           this.$router.replace({ name: 'groupList' });
         }
       }
     }
   },
   mounted() {
-    const { endpoint, useSSL, accessKey, secretKey, bucket } = getCredentials() || {};
+    const { endpoint, useSSL, accessKey, secretKey, bucket, cloudFrontUrl } = getCredentials();
     this.endpoint = endpoint || '';
     this.useSSL = useSSL || true;
     this.accessKey = accessKey || '';
     this.secretKey = secretKey || '';
     this.bucket = bucket || '';
+    this.cloudFrontUrl = cloudFrontUrl || '';
   }
 };
 </script>

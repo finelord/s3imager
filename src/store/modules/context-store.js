@@ -1,11 +1,17 @@
 const state = {
   endpoint: '',
   useSSL: true,
-  bucket: ''
+  bucket: '',
+  cloudFrontUrl: ''
 };
 
 const getters = {
-  baseUrl: state => `${state.useSSL ? 'https' : 'http'}://${state.bucket}.${state.endpoint}`
+  baseUrl: state => {
+    // TODO: figure out if this is correct
+    const protocol = state.useSSL ? 'https' : 'http';
+    const url = state.cloudFrontUrl || `${state.bucket}.${state.endpoint}`;
+    return `${protocol}://${url}`;
+  }
 };
 
 const actions = {
@@ -13,6 +19,7 @@ const actions = {
     commit('setEndpoint', { endpoint: payload.endpoint });
     commit('setUseSSL', { useSSL: payload.useSSL });
     commit('setBucket', { bucket: payload.bucket });
+    commit('setCloudFrontUrl', { cloudFrontUrl: payload.cloudFrontUrl });
   }
 };
 
@@ -25,6 +32,9 @@ const mutations = {
   },
   setBucket(state, payload) {
     state.bucket = payload.bucket;
+  },
+  setCloudFrontUrl(state, payload) {
+    state.cloudFrontUrl = payload.cloudFrontUrl;
   }
 };
 
