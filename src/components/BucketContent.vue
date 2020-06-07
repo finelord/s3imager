@@ -4,7 +4,9 @@
     <top-navbar>
       <top-navbar-router-link :to="{ name: 'groupList' }">Group List</top-navbar-router-link>
       <top-navbar-router-link :to="{ name: 'objectList' }">Object List</top-navbar-router-link>
-      <top-navbar-router-link :to="{ name: 'objectUploader' }">Object Uploader</top-navbar-router-link>
+      <top-navbar-router-link :to="{ name: 'objectUploader' }">
+        Object Uploader
+      </top-navbar-router-link>
     </top-navbar>
     <router-view></router-view>
   </div>
@@ -24,5 +26,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

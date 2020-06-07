@@ -4,10 +4,10 @@
       <top-navbar-router-link :to="{ name: 'logout' }" side="right">Logout</top-navbar-router-link>
     </top-navbar>
     <div class="bucket-list">
-      <BucketList/>
+      <BucketList />
     </div>
     <div class="bucket-content">
-      <BucketContent/>
+      <BucketContent />
     </div>
   </div>
 </template>

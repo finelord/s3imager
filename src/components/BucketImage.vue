@@ -2,7 +2,7 @@
   <div class="image" :class="{ 'image--selected': isSelected }" @click="toggleSelection">
     <span class="image-label" :class="{ 'image-label--selected': isSelected }"></span>
     <div class="image-border" :class="{ 'image-border--selected': isSelected }"></div>
-    <img :src="`${baseUrl}/${bucketName}/${imageGroup.previews['2x'].name}`">
+    <img :src="`${baseUrl}/${bucketName}/${imageGroup.previews['2x'].name}`" />
   </div>
 </template>
 

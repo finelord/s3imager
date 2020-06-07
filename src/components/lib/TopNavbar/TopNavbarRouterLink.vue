@@ -3,7 +3,7 @@
     class="item"
     active-class="active"
     :class="{
-      'right': side === 'right'
+      right: side === 'right'
     }"
     :to="to"
   >

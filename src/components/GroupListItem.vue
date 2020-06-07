@@ -1,16 +1,14 @@
 <template>
   <div class="container">
     <div class="preview">
-      <BucketImage :bucketName="bucketName" :imageGroup="group"/>
+      <BucketImage :bucketName="bucketName" :imageGroup="group" />
     </div>
     <div class="image-group">
       <span class="title">{{ group.name }}</span>
       <div class="items">
         <div v-for="item in group.items" :key="item.name">
-          {{item.configId}} ({{item.width}}x{{item.height}})
-          <button
-            @click="deleteImage(group.id, item.name)"
-          >Delete Image</button>
+          {{ item.configId }} ({{ item.width }}x{{ item.height }})
+          <button @click="deleteImage(group.id, item.name)">Delete Image</button>
         </div>
       </div>
       <button @click="deleteGroup(group.id)">Delete Group</button>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input type="text" v-model="newBucketName">
+    <input type="text" v-model="newBucketName" />
     <button @click="createBucket">Create bucket</button>
     <Container lock-axis="y" @drop="onDrop">
       <Draggable v-for="(bucket, index) in bucketList" :key="index">
@@ -8,7 +8,9 @@
           class="item"
           :class="{ active: selectedBucketName === bucket.name }"
           @click="selectBucket(bucket.name)"
-        >{{ bucket.name }}</div>
+        >
+          {{ bucket.name }}
+        </div>
       </Draggable>
     </Container>
   </div>

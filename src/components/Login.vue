@@ -3,23 +3,23 @@
     <styled-form class="login-form">
       <label>
         <span>Endpoint</span>
-        <input type="text" v-model="endpoint">
+        <input type="text" v-model="endpoint" />
       </label>
       <label>
         <span>Access Key</span>
-        <input type="text" v-model="accessKey">
+        <input type="text" v-model="accessKey" />
       </label>
       <label>
         <span>Secret Key</span>
-        <input type="text" v-model="secretKey">
+        <input type="text" v-model="secretKey" />
       </label>
       <label>
         <span>Bucket</span>
-        <input type="text" v-model="bucket">
+        <input type="text" v-model="bucket" />
       </label>
       <label>
         <span>CloudFront Url</span>
-        <input type="text" v-model="cloudFrontUrl">
+        <input type="text" v-model="cloudFrontUrl" />
       </label>
       <button class="primary" :disabled="!isValid" @click="login">Login</button>
     </styled-form>

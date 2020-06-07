@@ -4,11 +4,9 @@
       <label class="preset-select">
         <span>Preset</span>
         <select v-model="preset">
-          <option
-            v-for="(preset, index) in presetsSortOrder"
-            :value="preset"
-            :key="index"
-          >{{preset}}</option>
+          <option v-for="(preset, index) in presetsSortOrder" :value="preset" :key="index">
+            {{ preset }}
+          </option>
         </select>
       </label>
       <button class="preset-edit" @click="onPresetEdit">Edit</button>
@@ -16,12 +14,12 @@
       <button class="preset-delete" @click="onPresetDelete">Delete</button>
     </styled-form>
     <div v-if="isEditMode">
-      <input type="text" v-model="selectedPreset.name">
+      <input type="text" v-model="selectedPreset.name" />
       <div v-for="(config, index) in selectedPreset.value" :key="index">
         <div>
-          <input type="text" v-model="config.id">
+          <input type="text" v-model="config.id" />
           <label>
-            <input type="checkbox" v-model="config.resize">
+            <input type="checkbox" v-model="config.resize" />
             <span>resize</span>
           </label>
           <button @click="deleteConfig(config.id)">Delete</button>
@@ -33,7 +31,7 @@
             <option value="min">min</option>
             <option value="max">max</option>
           </select>
-          <input type="number" min="1" v-model="config.value">
+          <input type="number" min="1" v-model="config.value" />
         </div>
       </div>
       <div>

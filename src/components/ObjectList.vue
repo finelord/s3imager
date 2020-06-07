@@ -2,7 +2,7 @@
   <Container @drop="onDrop">
     <Draggable v-for="(object, index) in objectList" :key="index">
       <div>{{ object.name }}</div>
-      <img :src="`${baseUrl}/${bucketName}/${object.name}`" height="100px">
+      <img :src="`${baseUrl}/${bucketName}/${object.name}`" height="100px" />
     </Draggable>
   </Container>
 </template>
@@ -55,5 +55,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

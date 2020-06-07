@@ -1,14 +1,15 @@
-import generate from 'nanoid/generate';
+import { customAlphabet } from 'nanoid/non-secure';
 
 const GROUP_ID_ALPHABET = '0123456789abcdefghijklmnopqrstuvwxyz';
 const GROUP_ID_LENGTH = 32;
+const groupNanoID = customAlphabet(GROUP_ID_ALPHABET, GROUP_ID_LENGTH);
 
 const ID_DELIMITER = '-';
 const CONFIG_DELIMITER = '-';
 const DIMENSIONS_DELIMITER = 'x';
 
 export function generateGroupId() {
-  return generate(GROUP_ID_ALPHABET, GROUP_ID_LENGTH);
+  return groupNanoID();
 }
 
 export function generateImageId(groupId, configId, width, height) {

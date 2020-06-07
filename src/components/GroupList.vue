@@ -1,13 +1,13 @@
 <template>
   <div class="container">
     <div class="top-actionbar">
-      <ExportMeta/>
+      <ExportMeta />
     </div>
 
     <div class="list">
       <Container @drop="onDrop">
         <Draggable v-for="group in groups" class="item" :key="group.id">
-          <GroupListItem :bucketName="bucketName" :group="group"/>
+          <GroupListItem :bucketName="bucketName" :group="group" />
         </Draggable>
       </Container>
     </div>
@@ -16,7 +16,7 @@
       <p>--- out of group ---</p>
       <div v-for="(object, index) in invalidObjectList" :key="index">
         <div>{{ object.name }}</div>
-        <img :src="`${baseUrl}/${bucketName}/${object.name}`" height="100px">
+        <img :src="`${baseUrl}/${bucketName}/${object.name}`" height="100px" />
       </div>
     </div>
   </div>
@@ -77,5 +77,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

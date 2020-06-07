@@ -2,13 +2,13 @@
   <div>
     <object-uploader-config></object-uploader-config>
     <div>
-      <input type="file" @change="handleFileSelect" multiple>
+      <input type="file" @change="handleFileSelect" multiple />
       <button @click="handleFileUpload">upload</button>
     </div>
     <Container @drop="onDrop">
       <Draggable v-for="(preview, index) in previews" :key="index">
         <div>
-          <img :src="preview" height="100px">
+          <img :src="preview" height="100px" />
         </div>
       </Draggable>
     </Container>
@@ -56,5 +56,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
