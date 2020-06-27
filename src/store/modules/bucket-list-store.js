@@ -36,17 +36,19 @@ const actions = {
         if (!prefixList || !prefixList.length) return;
         commit('setItems', { items: prefixList });
         commit('setItemsSortOrder', { sortOrder: prefixListMeta.sortOrder });
-        const selectedItem = prefixListMeta.sortOrder ? prefixListMeta.sortOrder[0] : prefixList[0];
-        commit('selectItem', { itemName: selectedItem });
       }
     );
   },
-  createItem({ commit }, payload) {
+  createItem({ commit, getters }, payload) {
     createPrefix(payload.bucketName)
       .then(() => {
         const item = { name: payload.bucketName };
         commit('addItems', { items: [item] });
         commit('selectItem', { itemName: payload.bucketName });
+        uploadPrefixListMeta(getters.meta).catch(err => {
+          // TODO: handle err
+          console.error(err);
+        });
       })
       .catch(err => {
         // TODO: handle error
@@ -59,7 +61,6 @@ const actions = {
     deletePrefix(payload.bucketName)
       .then(() => {
         commit('deleteItem', payload);
-        commit('selectItem', { itemName: getters.meta.sortOrder[0] });
         uploadPrefixListMeta(getters.meta).catch(err => {
           // TODO: handle err
           console.error(err);
